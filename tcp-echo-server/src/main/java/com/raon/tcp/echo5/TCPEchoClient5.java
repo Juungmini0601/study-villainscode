@@ -1,4 +1,4 @@
-package com.raon.tcp.echo4;
+package com.raon.tcp.echo5;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -9,7 +9,7 @@ import java.net.Socket;
  * @author    : kimjungmin
  * Created on : 2025. 3. 3.
  */
-public class TCPEchoClient4 {
+public class TCPEchoClient5 {
 	private static final int PORT = 9999;
 
 	public static void main(String[] args) throws IOException {
@@ -45,8 +45,7 @@ public class TCPEchoClient4 {
 
 		long endTime = System.currentTimeMillis();
 		double seconds = (double)(endTime - current) / 1000;
-		// 5000개 1.06초
+		// 5000개 0.8초
 		System.out.println("수행시간:" + seconds);
 	}
-
 }

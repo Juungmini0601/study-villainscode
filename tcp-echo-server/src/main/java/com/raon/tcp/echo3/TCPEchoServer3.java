@@ -18,7 +18,7 @@ public class TCPEchoServer3 {
 	public static void main(String[] args) throws IOException {
 		ServerSocket serverSocket = new ServerSocket(PORT);
 		System.out.println("server started on port: " + PORT);
-		ExecutorService executorService = Executors.newVirtualThreadPerTaskExecutor();
+		ExecutorService executorService = Executors.newFixedThreadPool(10);
 
 		// accept
 		while (true) {
@@ -42,6 +42,9 @@ public class TCPEchoServer3 {
 					// 실제로는 소켓 닫아줘야 하는데 예제라서 간단하게 작성
 					dos.writeUTF("goodBye");
 					System.out.println("socket release");
+					dis.close();
+					dos.close();
+					socket.close();
 					return;
 				}
 
