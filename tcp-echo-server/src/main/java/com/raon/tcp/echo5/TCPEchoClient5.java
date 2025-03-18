@@ -15,7 +15,7 @@ public class TCPEchoClient5 {
 	public static void main(String[] args) throws IOException {
 		long current = System.currentTimeMillis();
 
-		for (int i = 0; i < 5000; i++) {
+		for (int i = 0; i < 10000; i++) {
 			try (Socket socket = new Socket("localhost", PORT);
 				 DataInputStream dis = new DataInputStream(socket.getInputStream());
 				 DataOutputStream dos = new DataOutputStream(socket.getOutputStream())) {
@@ -45,7 +45,7 @@ public class TCPEchoClient5 {
 
 		long endTime = System.currentTimeMillis();
 		double seconds = (double)(endTime - current) / 1000;
-		// 5000개 0.8초
+		// 10000 1.1초
 		System.out.println("수행시간:" + seconds);
 	}
 }

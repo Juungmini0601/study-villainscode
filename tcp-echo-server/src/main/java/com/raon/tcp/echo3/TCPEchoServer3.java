@@ -5,7 +5,6 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
@@ -18,7 +17,9 @@ public class TCPEchoServer3 {
 	public static void main(String[] args) throws IOException {
 		ServerSocket serverSocket = new ServerSocket(PORT);
 		System.out.println("server started on port: " + PORT);
-		ExecutorService executorService = Executors.newFixedThreadPool(10);
+
+		// VirtualThreadPerTaskExecutor 사용
+		var executorService = Executors.newVirtualThreadPerTaskExecutor();
 
 		// accept
 		while (true) {
@@ -27,6 +28,7 @@ public class TCPEchoServer3 {
 
 			executorService.execute(() -> handleSocket(socket));
 		}
+		// C10K 성공 0.8초?!
 	}
 
 	private static void handleSocket(Socket socket) {
