@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Board List</title>
+  <style>
+      table {
+          width: 100%;
+          border-collapse: collapse;
+      }
+
+      th, td {
+          border: 1px solid black;
+          padding: 8px;
+          text-align: left;
+      }
+  </style>
+</head>
+<body>
+<h1>Board List</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Author</th>
+    <th>Contents</th>
+    <th>Comments</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- 타임리프를 이용한 동적 리스트 출력 -->
+  <tr th:each="board : ${boards}">
+    <td th:text="${board.author}"></td>
+    <td th:text="${board.contents}"></td>
+    <td th:text="${#strings.arrayJoin(board.comments, ', ')}"></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
