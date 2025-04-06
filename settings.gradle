@@ -1,4 +1,4 @@
 rootProject.name = 'study-villainscode'
 include 'spring-mvc'
-include 'tcp-echo-server'
+include 'tcp-http-example'
 
