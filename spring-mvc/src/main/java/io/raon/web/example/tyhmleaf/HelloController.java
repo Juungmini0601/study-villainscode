@@ -1,4 +1,4 @@
-package io.raon.web.example.controller;
+package io.raon.web.example.tyhmleaf;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
